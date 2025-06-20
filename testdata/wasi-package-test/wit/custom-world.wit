@@ -1,0 +1,18 @@
+// custom-world.wit - A minimal custom WASI world for testing
+
+package test:custom-wasi;
+
+/// Simple hello interface for testing custom WASI worlds
+interface hello {
+  /// Get a greeting message
+  get-greeting: func() -> string;
+
+  /// Add two numbers
+  add: func(a: s32, b: s32) -> s32;
+}
+
+/// A custom world that's simpler than wasi:cli
+world custom-world {
+  /// Export the hello interface
+  export hello;
+}
